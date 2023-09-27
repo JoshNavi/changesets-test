@@ -20,5 +20,8 @@ jobs:
       - name: debug tag
         run: git tag test-${{ github.workflow_sha }}
 
+      - name: debug status
+        run: git status
+
       - name: debug push
         run: git push -v --follow-tags
