@@ -8,9 +8,6 @@ jobs:
   debug-push-tags:
     runs-on: ubuntu-latest
     steps:
-      - name: debug git
-        run: git -v
-
       - name: checkout
         uses: actions/checkout@v3
 
