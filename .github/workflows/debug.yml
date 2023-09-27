@@ -5,8 +5,14 @@ on:
     branches: [main]
 
 jobs:
-  debug:
+  debug-git:
     runs-on: ubuntu-latest
     steps:
       - name: debug git
         run: git -v
+
+  debug-push-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - name: debug git
+        run: git tag test-${{ github.workflow_sha }}
