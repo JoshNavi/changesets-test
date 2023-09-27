@@ -1,0 +1,12 @@
+name: Debug
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: debug git
+        run: git -v

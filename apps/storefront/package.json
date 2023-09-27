@@ -1,6 +1,6 @@
 {
   "name": "storefront",
-  "version": "0.1.0-beta-20230927144659",
+  "version": "1.0.0-beta-20230927145448",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -11,7 +11,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "logger": "*",
+    "logger": "0.1.0-beta-20230927145448",
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
