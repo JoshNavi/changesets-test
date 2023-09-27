@@ -5,16 +5,17 @@ on:
     branches: [main]
 
 jobs:
-  debug-git:
+  debug-push-tags:
     runs-on: ubuntu-latest
     steps:
       - name: debug git
         run: git -v
 
-  debug-push-tags:
-    runs-on: ubuntu-latest
-    steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: debug git
+
+      - name: debug config
+        run: git config -l
+
+      - name: debug tag
         run: git tag test-${{ github.workflow_sha }}
