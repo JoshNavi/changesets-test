@@ -14,5 +14,7 @@ jobs:
   debug-push-tags:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
       - name: debug git
         run: git tag test-${{ github.workflow_sha }}
