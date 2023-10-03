@@ -27,7 +27,7 @@ jobs:
         run: git status
 
       - name: debug log
-        run: git status
+        run: git log
 
       - name: debug push
         run: git push -v --tags
