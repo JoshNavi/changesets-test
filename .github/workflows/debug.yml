@@ -14,10 +14,19 @@ jobs:
       - name: debug config
         run: git config -l
 
+      - name: install
+        run: yarn
+
+      - name: Set Version (Snapshot)
+        run: npx changeset version --snapshot beta
+
       - name: debug tag
-        run: git tag test-${{ github.workflow_sha }}
+        run: npx changeset tag
 
       - name: debug status
+        run: git status
+
+      - name: debug log
         run: git status
 
       - name: debug push
