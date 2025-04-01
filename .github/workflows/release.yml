@@ -8,4 +8,7 @@ jobs:
     steps:
       - run: echo "$TAG_NAME"
         env:
-          TAG_NAME: ${{context.payload.release.tag_name}}
+          TAG_NAME: ${{github.event.release.tag_name}}
+      - run: echo "$BODY"
+        env:
+          BODY: ${{github.event.release.body}}
