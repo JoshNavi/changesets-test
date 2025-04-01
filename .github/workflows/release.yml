@@ -1,0 +1,11 @@
+on:
+  release:
+    types: [released]
+
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$TAG_NAME"
+        env:
+          TAG_NAME: ${{context.payload.release.tag_name}}
