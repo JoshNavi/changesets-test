@@ -15,17 +15,15 @@ jobs:
           script: |
             const { TAG_NAME, BODY } = process.env;
 
-            console.log(TAG_NAME, BODY);
-
-            console.log(`<Update label="${TAG_NAME}">
+            console.log(`<Update label="${TAG_NAME.split('@').at(-1)}">
 
             ### Improvements
 
             ${BODY
               .split('\n')
-              .filter(line => line.startsWith('-  ') && !line.includes('Updated dependencies'))
-              .map(line => line.replace(/^.*:/, '-'))
-              .join('\n')
+              .filter(line => line.trim().length > 0 && !line.startsWith('###') && !line.includes('Updated dependencies'))
+              .map(line => line.trim().replace(/^.*:/, '-').replace(/\s+/, ' '))
+              .join('\n').replace(/\n([^-])/, '\n- $1')
             }
 
             </Update>`);
