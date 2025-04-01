@@ -11,8 +11,8 @@
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "turbo": "latest",
-    "@changesets/cli": "^2.26.2"
+    "@changesets/cli": "^2.28.1",
+    "turbo": "2.4.4"
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
