@@ -23,7 +23,7 @@ jobs:
 
             ${BODY
               .split('\n')
-              .filter(line => line.startsWith('-  '))
+              .filter(line => line.startsWith('-  ') && !line.includes('Updated dependencies'))
               .map(line => line.replace(/^.*:/, '-'))
               .join('\n')
             }
