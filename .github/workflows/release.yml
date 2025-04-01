@@ -6,9 +6,26 @@ jobs:
   generate-changelog:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$TAG_NAME"
+      - name: Create changelog from release
+        uses: actions/github-script@v7
         env:
           TAG_NAME: ${{github.event.release.tag_name}}
-      - run: echo "$BODY"
-        env:
           BODY: ${{github.event.release.body}}
+        with:
+          script: |
+            const { TAG_NAME, BODY } = process.env;
+
+            console.log(TAG_NAME, BODY);
+
+            console.log(`<Update label="${TAG_NAME}">
+
+            ### Improvements
+
+            ${BODY
+              .split('\n')
+              .filter(line => line.startsWith('-  '))
+              .map(line => line.replace(/^.*:/, '-'))
+              .join('\n')
+            }
+
+            </Update>`);
